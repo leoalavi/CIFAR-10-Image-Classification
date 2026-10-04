@@ -32,9 +32,9 @@ This project goes beyond model training. It includes augmentation pipelines, cos
 
 ## 🎯 Research Question
 
-> _How much does a pretrained backbone actually help compared to training from scratch when both models share the same training setup?_
+> _How much does a pretrained backbone actually help compared to training from scratch under a comparable training setup?_
 
-A common assumption in deep learning is that transfer learning always wins — but by how much, and under what conditions? This project answers that question with a controlled comparison: the same dataset, optimiser, learning-rate schedule, epoch budget, and augmentation pipeline across all models, with architecture and pretraining strategy as the only variables.
+A common assumption in deep learning is that transfer learning always wins — but by how much, and under what conditions? This project answers that question with a comparison that is controlled where practical: the same dataset and a broadly comparable evaluation setup across all models, with architecture- and training-specific differences (such as the 30-epoch ResNet-18 linear probe) documented explicitly.
 
 The results are relevant to:
 
@@ -52,7 +52,7 @@ The results are relevant to:
 
 This isn't just a training script — it's an end-to-end applied ML workflow:
 
-- **Controlled experimentation** — one dataset, optimiser, schedule, and augmentation pipeline held constant across five architectures, isolating architecture and pretraining as the only variables.
+- **Controlled experimentation** — five architectures compared on one dataset and a shared evaluation setup, keeping the comparison controlled where practical while documenting architecture-specific training differences explicitly.
 - **Transfer learning impact, quantified** — a from-scratch CNN vs. two frozen-backbone ImageNet models, with the accuracy/parameter trade-off measured, not asserted.
 - **Evaluation beyond top-1 accuracy** — confusion-pair analysis, per-class breakdowns, and confidence calibration on the full 10,000-image test set.
 - **Interpretability** — Grad-CAM visualisations (CLI + notebook) showing *where* each model is looking when it makes a prediction.
@@ -156,7 +156,7 @@ Both transfer-learning models reach strong accuracy within 1–3 epochs because 
 | **Visualization** | Matplotlib (deployed) · Seaborn (notebook) |
 | **Interpretability** | Grad-CAM with PyTorch hooks — CLI (`gradcam.py`) + notebook only |
 | **Demo App** | Gradio ≥5.29 on Hugging Face Spaces |
-| **Model Weights** | Hugging Face Hub (`leoalavi/cifar10-models`) |
+| **Model Weights** | Hugging Face Hub (`mrpouyaalavi/cifar10-models`) |
 | **Hardware** | Auto-detected: CUDA / Apple Silicon MPS / CPU |
 
 ### Feature Status
@@ -419,7 +419,7 @@ Built with the support of the open-source community. This project benefits from:
 ### `> ping --author`
 
 ```text
-> Target     : Leo Alavi — Software Engineer | Applied AI/ML
+> Target     : Leo Alavi — Software Engineer | Applied AI
 > University : Macquarie University, Sydney, NSW
 > Major      : B.IT — Artificial Intelligence & Web/App Development
 > Status     : [●] ONLINE — open to grad & junior opportunities
